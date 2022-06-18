@@ -1,0 +1,6 @@
+﻿  main.cpp
+E:\.School\GDGRAP1\GDGRAP1\GDGRAP1\main.cpp(134,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\.School\GDGRAP1\GDGRAP1\GDGRAP1\main.cpp(146,26): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+E:\.School\GDGRAP1\GDGRAP1\GDGRAP1\main.cpp(160,77): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  GDGRAP1.vcxproj -> E:\.School\GDGRAP1\GDGRAP1\x64\Debug\GDGRAP1.exe
