@@ -54,7 +54,7 @@ int main(void)
     input["D"] = false;
     input["Q"] = false;
     input["E"] = false;
-    input["Space"] = false;
+    input["Space"] = true;
     input["mousePressed"] = false;
     input["pointLight"] = true;
     mousePos.x = 0;
@@ -130,6 +130,11 @@ int main(void)
     bigrock->SetScale(glm::vec3(10.f, 10.f, 10.f));
     bigrock->SetRadius(200);
     
+    asteroid->Orbit(delta, 20, 0.5f, 0.1f, 0);
+    rock->Orbit(delta, 300, 0.65f, 0.12f, 25);
+    lavarock->Orbit(delta, 200, 0.4f, 0.08f, -30);
+    smallrock->Orbit(delta, 40, 0.2f, 0.01f, 50);
+    bigrock->Orbit(delta, 120, 0.7f, 0.1f, -10);
 
     ////////////////////////////////////////////////////////////////////////
     //Transform
@@ -197,23 +202,32 @@ int main(void)
         //Debris
         debrisShader->UseShader();
         asteroid->Draw(debrisShader->GetShaderProgram(), usePerspective, perspectiveCamera, orthoCamera, light);
-        asteroid->Orbit(delta, 20, 0.5f, 0.1f, 0);
+        
 
         debrisShader->UseShader();
         rock->Draw(debrisShader->GetShaderProgram(), usePerspective, perspectiveCamera, orthoCamera, light);
-        rock->Orbit(delta, 300, 0.65f, 0.12f, 25);
+        
 
         debrisShader->UseShader();
         lavarock->Draw(debrisShader->GetShaderProgram(), usePerspective, perspectiveCamera, orthoCamera, light);
-        lavarock->Orbit(delta, 200, 0.4f, 0.08f, -30);
+        
 
         debrisShader->UseShader();
         smallrock->Draw(debrisShader->GetShaderProgram(), usePerspective, perspectiveCamera, orthoCamera, light);
-        smallrock->Orbit(delta, 40, 0.2f, 0.01f, 50);
+        
 
         debrisShader->UseShader();
         bigrock->Draw(debrisShader->GetShaderProgram(), usePerspective, perspectiveCamera, orthoCamera, light);
-        bigrock->Orbit(delta, 120, 0.7f, 0.1f, -10);
+        
+
+        if (input["Space"] == true)
+        {
+            asteroid->Orbit(delta, 20, 0.5f, 0.1f, 0);
+            rock->Orbit(delta, 300, 0.65f, 0.12f, 25);
+            lavarock->Orbit(delta, 200, 0.4f, 0.08f, -30);
+            smallrock->Orbit(delta, 40, 0.2f, 0.01f, 50);
+            bigrock->Orbit(delta, 120, 0.7f, 0.1f, -10);
+        }
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
